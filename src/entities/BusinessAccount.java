@@ -29,6 +29,6 @@ public class BusinessAccount extends Account {
 
 	@Override
 	public String toString() {
-		return super.toString() + " Limite PJ: R$ " + loanLimit;
+		return super.toString() + " \nLimite PJ: R$ " + loanLimit;
 	}
 }
