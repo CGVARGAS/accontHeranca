@@ -45,7 +45,7 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [number=" + number + ", holder=" + holder + ", balance=" + balance + "]";
+		return "Conta: " + number + ", Titular: " + holder + ", Saldo: R$ " + balance;
 	}
 
 }

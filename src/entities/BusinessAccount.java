@@ -26,5 +26,9 @@ public class BusinessAccount extends Account {
 		if(amount <= loanLimit)
 		    balance += amount - 10.0;	
 	}
-	
+
+	@Override
+	public String toString() {
+		return super.toString() + " Limite PJ: R$ " + loanLimit;
+	}
 }
