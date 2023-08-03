@@ -33,19 +33,19 @@ public class Account {
 	public Double getBalance() {
 		return balance;
 	}
-
+	
+	// Efetua saques na conta
 	public void withdraw(double amount) {
 		balance -= amount;
 	}
-	
+	// Efetua depósitos na conta
 	public void deposit(double amount) {
 		balance += amount;
 	}
-	
-	
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Account [number=" + number + ", holder=" + holder + ", balance=" + balance + "]";
+	}
 
 }
