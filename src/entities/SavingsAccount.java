@@ -3,7 +3,6 @@ package entities;
 public class SavingsAccount extends Account{
 	private Double interestRate;
 
-	
 	public SavingsAccount( ) {
 		super();
 	}
@@ -22,22 +21,26 @@ public class SavingsAccount extends Account{
 	}
     
 	// Método responsável em atualizar saldo através de taxa de juros adicionada pelo usuário
-	public Double updateBalance(Double interestRate) {
-		double percentual = 0;
-		percentual = percentual * (interestRate / 100);
-		return balance += percentual;
+	public void updateBalance(Double interestRate) {
+		double percentual = balance * (interestRate / 100);
+		balance += percentual;
 	}
 	
 	@Override  // -> Sobreprosição
 	public void withdraw(double amount) {
-		balance -= amount;
+		// Trava para não ocorrer saque acima do saldo disponível.
+		if(amount <= balance) {
+			balance -= amount;
+		}else {
+			System.out.println("Valor do saque excede o saldo!");
+		}
 	}
 	
 	// "super.toString()" -> Sobrescrever o método toString() para representação em string da classe "SavingsAccount"
 	@Override
 	public String toString() {
 		return super.toString() + " \ntaxa de remuneração: " + interestRate + "%"  
-				                + " \nSaldo atualizado: R$ " + updateBalance(balance);
+				                + " \nSaldo atualizado: R$ " + balance;
 	}
 
 }

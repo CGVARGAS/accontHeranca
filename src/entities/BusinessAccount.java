@@ -22,7 +22,6 @@ public class BusinessAccount extends Account {
 		this.loanLimit = loanLimit;
 	}
 	
-	// implementar o método para uso do limite e cobrança de taxa...
 	public void loan(double amount) {
 		if(amount <= loanLimit) {
 			loanLimit = loanLimit - amount;

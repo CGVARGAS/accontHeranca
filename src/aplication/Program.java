@@ -75,13 +75,12 @@ public class Program {
 			
 			/* UPCASTING -> declaração de variável "savingsAccont" da superclasse: "Accont" 
 			 * atribuindo objeto da variável da subclasse: "SavingsAccount"*/  
-			Account savingsAccont = new SavingsAccount(number, holder, balance, interestRate);
-			
+			SavingsAccount savingsAccont = new SavingsAccount(number, holder, balance, interestRate);
+			savingsAccont.updateBalance(interestRate);
 			System.out.println("Conta aberta com sucesso!");
+			
 			System.out.println(" ");
 			System.out.print("Saque (s/n): ");
-			
-			
 			char saque = sc.next().charAt(0);
 			if(saque == 's') {
 				System.out.print("Valor: ");
@@ -89,6 +88,9 @@ public class Program {
 				// Downcasting para BusinessAccount
 				((SavingsAccount) savingsAccont).withdraw(valor);
 				System.out.println(savingsAccont);	
+			}else {
+				
+				System.out.println(savingsAccont);
 			}
 				
 		}else {
