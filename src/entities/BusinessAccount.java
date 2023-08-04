@@ -22,13 +22,20 @@ public class BusinessAccount extends Account {
 		this.loanLimit = loanLimit;
 	}
 	
+	// implementar o método para uso do limite e cobrança de taxa...
 	public void loan(double amount) {
-		if(amount <= loanLimit)
-		    balance += amount - 10.0;	
+		if(amount <= loanLimit) {
+			loanLimit = loanLimit - amount;
+		    balance += amount - 10.0;
+			
+		}else {
+			System.out.println("Valor do empréstimo excede o limite!");
+		}
+			
 	}
-
+    
 	@Override
 	public String toString() {
-		return super.toString() + " \nLimite PJ: R$ " + loanLimit;
+		return super.toString() + " \nLimite Disponível: R$ " + loanLimit;
 	}
 }

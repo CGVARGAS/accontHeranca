@@ -36,7 +36,7 @@ public class Account {
 	
 	// Efetua saques na conta
 	public void withdraw(double amount) {
-		balance -= amount;
+		balance -= amount + 5.0;
 	}
 	// Efetua depósitos na conta
 	public void deposit(double amount) {
