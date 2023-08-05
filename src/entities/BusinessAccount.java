@@ -21,7 +21,7 @@ public class BusinessAccount extends Account {
 	public void setLoanLimit(Double loanLimit) {
 		this.loanLimit = loanLimit;
 	}
-	
+	// Libera emprestimo diminuindo o limite e descontando taxa de 10.0
 	public void loan(double amount) {
 		if(amount <= loanLimit) {
 			loanLimit = loanLimit - amount;
@@ -29,10 +29,24 @@ public class BusinessAccount extends Account {
 			
 		}else {
 			System.out.println("Valor do empréstimo excede o limite!");
-		}
-			
+	    }
 	}
-    
+	
+	@Override
+	public void withdraw(double amount) {
+		
+		// Desconta do saldo o valor de 2.00; 
+		if(amount <= balance) {
+			// Reutiliza o código da superclasse para efetuar o saque da conta
+			super.withdraw(amount);
+			balance -= 2.0;
+		
+		}else {
+			System.out.println("Valor do saque excede o saldo!\n");
+		}
+		
+	}
+			
 	@Override
 	public String toString() {
 		return super.toString() + " \nLimite Disponível: R$ " + loanLimit;

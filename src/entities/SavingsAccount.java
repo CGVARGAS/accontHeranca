@@ -26,7 +26,7 @@ public class SavingsAccount extends Account{
 		balance += percentual;
 	}
 	
-	@Override  // -> Sobreprosição
+	@Override  // -> Sobreprosição: se ouver erro no nome do método em relação a superClasse irá apresentar erro.
 	public void withdraw(double amount) {
 		// Trava para não ocorrer saque acima do saldo disponível.
 		if(amount <= balance) {

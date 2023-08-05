@@ -54,13 +54,25 @@ public class Program {
 			if(emprestimo == 's') {
 				System.out.print("Valor: ");
 				double valor = sc.nextDouble();
+				System.out.println(" ");
 				// Downcasting para BusinessAccount
 		        ((BusinessAccount) businessAccount).loan(valor);
+				System.out.println(businessAccount);		
+			
+			}
+			
+			System.out.print("\nSaque (s/n): ");
+			char saque = sc.next().charAt(0);
+			if(saque == 's') {
+				System.out.print("Valor: ");
+				double valor = sc.nextDouble();
+				// Downcasting para BusinessAccount
+				((BusinessAccount) businessAccount).withdraw(valor);
 				System.out.println(businessAccount);
 			}else {
 				System.out.println(businessAccount);
-			}
-				
+			}	
+		    
 		}
 		else if(conta == 3) {
 			System.out.print("Número da Poupança: ");
@@ -97,6 +109,7 @@ public class Program {
 			System.out.println("Opção inválida!");
 			System.out.println("Encerrando o programa!");
 		}
+		
 		sc.close();
 	}
 }
